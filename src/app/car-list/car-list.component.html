@@ -7,9 +7,12 @@
         <h3 mat-line>
           <a mat-button [routerLink]="['/car-edit', car.id]">{{car.name}}</a>
         </h3>
+        <div mat-line *ngFor="let owner of owners">
+          <p *ngIf="car.ownerDni === owner.dni && car.ownerDni !== null">{{owner.name}}</p>
+        </div>
       </mat-list-item>
     </mat-list>
   </mat-card-content>
-
   <button mat-fab color="primary" [routerLink]="['/car-add']">Add</button>
+  <button class ="owner-button" mat-fab color="warn" [routerLink]="['/owner-list']">Owners</button>
 </mat-card>
