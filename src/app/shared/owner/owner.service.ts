@@ -33,25 +33,23 @@ export class OwnerService {
     return result;
   }
 
-  unlinkCar(href, dni: string) {
+  unlinkCar(dni: string) {
     this.carService.getAll().subscribe(carData => {
       this.cars = carData._embedded.cars;
       for (const car of this.cars) {
-        console.log(car.ownerDni + " = " + dni);
         if (car.ownerDni === dni) {
-          let carForm: any = {};
-          carForm.href = car._links.car.href;
-          carForm.name = car.name;
-          carForm.ownerDni = null;
-          console.log(carForm);
-          this.carService.save(carForm);
+          car.href = car._links.car.href;
+          car.ownerDni = null;
+          this.carService.save(car).subscribe(result => {
+            console.log("Operación realizada con éxito.")
+          }, error => console.error(error));
         }
       }
     });
   }
 
   remove(href: string, dni: string) {
-    this.unlinkCar(href, dni);
+    this.unlinkCar(dni);
     return this.http.delete(href);
   }
 }
