@@ -1,8 +1,8 @@
 # Solución del taller
 ### Mateo Castro Muñoz
 ## Servicios
-Para llevar a cabo el consumo de los datos del **owner** se realizaron los siguientes servicios (guardados en el directorio *"/shared/owner"*):
-**getAll():** Obtiene todos los owners. Hace uso del método get de HTTP.
+Para llevar a cabo el consumo de los datos del **owner** se realizaron los siguientes servicios (guardados en el directorio *"/shared/owner"*):  
+**getAll():** Obtiene todos los owners. Hace uso del método get de HTTP.  
 **get(id):** Obtiene el owner identificado por el id que recibe como parámetro. Hace uso del método get de HTTP.
 **save(owner):** Crea o actualiza el owner que recibe como parámetro dependiendo de si éste ya existe o no. Hace uso de los métodos put y post de HTTP.
 **unlinkCar(dni):** Elimina la relación entre un owner y un car cuando se elimina el owner identificado por el dni que recibe como parámetro.
